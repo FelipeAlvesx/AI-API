@@ -1,10 +1,9 @@
 package com.felipe.dev.api.infra.controller;
 
 import com.felipe.dev.api.application.usecases.RegisterPatient;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/users")
 @RestController
@@ -17,9 +16,14 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<?> register() {
+    public ResponseEntity<?> register(@RequestBody @Valid UserDto userDto) {
         // Implementation goes here
         return null;
+    }
+
+    @GetMapping
+    public ResponseEntity<?> helloWorld() {
+        return ResponseEntity.ok("Hello World");
     }
 
 }
