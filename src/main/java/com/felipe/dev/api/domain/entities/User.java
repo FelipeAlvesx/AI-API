@@ -7,9 +7,11 @@ public class User {
     private String name;
     private String email;
 
+    private String phone;
+
     private UserType userType;
 
-    public User(String name, String email, UserType userType) {
+    public User(String name, String email, UserType userType, String phone) {
         this.name = name;
         this.email = email;
         this.userType = userType;
@@ -17,6 +19,14 @@ public class User {
 
     public User(){
 
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getName() {

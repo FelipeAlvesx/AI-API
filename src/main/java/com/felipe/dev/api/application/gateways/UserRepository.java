@@ -11,6 +11,8 @@ public interface UserRepository {
 
     User updatePatient(User user);
 
+    User findById(Long id);
+
 
 
 }

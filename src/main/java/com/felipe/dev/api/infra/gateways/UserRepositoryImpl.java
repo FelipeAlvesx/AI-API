@@ -27,4 +27,10 @@ public class UserRepositoryImpl implements UserRepository {
     public User updatePatient(User user) {
         return null;
     }
+
+    @Override
+    public User findById(Long id) {
+        return repository.findById(id)
+                .stream().map(mapper::toDomain).findFirst().orElse(null);
+    }
 }
