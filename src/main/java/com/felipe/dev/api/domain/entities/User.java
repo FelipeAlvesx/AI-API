@@ -1,6 +1,7 @@
 package com.felipe.dev.api.domain.entities;
 
 import com.felipe.dev.api.domain.UserType;
+import com.felipe.dev.api.infra.controller.UserDto;
 
 public class User {
 
@@ -15,10 +16,18 @@ public class User {
         this.name = name;
         this.email = email;
         this.userType = userType;
+        this.phone = phone;
     }
 
     public User(){
 
+    }
+
+    public User(UserDto userDto) {
+        this.name = userDto.name();
+        this.email = userDto.email();
+        this.phone = userDto.phone();
+        this.userType = UserType.valueOf(userDto.userType());
     }
 
     public String getPhone() {

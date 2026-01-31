@@ -2,7 +2,9 @@ package com.felipe.dev.api.infra.controller;
 
 import com.felipe.dev.api.application.usecases.RegisterPatient;
 import com.felipe.dev.api.application.usecases.UpdatePatient;
+import com.felipe.dev.api.domain.entities.User;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +23,9 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<?> register(@RequestBody @Valid UserDto userDto) {
-        // Implementation goes here
-        return null;
+        var user = new User(userDto);
+        registerPatient.execute(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(userDto);
     }
 
     @PatchMapping

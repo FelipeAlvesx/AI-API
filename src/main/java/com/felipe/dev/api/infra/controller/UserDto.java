@@ -7,10 +7,12 @@ public record UserDto(
         @NotBlank
         String name,
 
-        @NotBlank
         String email,
 
         @NotBlank
-        String userType
+        String userType,
+
+        @NotBlank
+        String phone
 ) {
 }
