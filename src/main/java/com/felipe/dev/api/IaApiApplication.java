@@ -1,12 +1,11 @@
 package com.felipe.dev.api;
 
-import com.felipe.dev.api.infra.AI.config.AIProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication
-@EnableConfigurationProperties(AIProperties.class)
+@ConfigurationPropertiesScan
 public class IaApiApplication {
 
 	public static void main(String[] args) {

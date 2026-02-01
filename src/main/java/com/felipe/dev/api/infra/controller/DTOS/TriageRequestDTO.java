@@ -5,5 +5,5 @@ import java.util.List;
 public record TriageRequestDTO(
         int age,
         List<String> symptoms,
-        String patientId
+        String medicalHistorySummary
 ) {}

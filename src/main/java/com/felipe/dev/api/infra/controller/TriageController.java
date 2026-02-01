@@ -4,7 +4,6 @@ import com.felipe.dev.api.application.gateways.AI.TriageAIRequest;
 import com.felipe.dev.api.application.gateways.AI.TriageAIResponse;
 import com.felipe.dev.api.application.usecases.GeneratePatientSummary;
 import com.felipe.dev.api.application.usecases.TriagePatient;
-import com.felipe.dev.api.domain.entities.Triage;
 import com.felipe.dev.api.infra.controller.DTOS.TriageRequestDTO;
 import com.felipe.dev.api.infra.controller.DTOS.TriageResponseDTO;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +28,7 @@ public class TriageController {
     @PostMapping
     public ResponseEntity<?> triage(@RequestBody TriageRequestDTO request){
         TriageAIRequest triageAIRequest = new TriageAIRequest(
-                request.age(), request.symptoms(), request.patientId());
+                request.age(), request.symptoms(), request.medicalHistorySummary());
         TriageResponseDTO response = new TriageResponseDTO(triagePatient.execute(triageAIRequest));
         return ResponseEntity.ok(response);
     }
