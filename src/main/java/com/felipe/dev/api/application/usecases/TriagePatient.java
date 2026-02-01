@@ -12,8 +12,8 @@ public class TriagePatient {
         this.aiClient = aiClient;
     }
 
-    public TriageAIResponse execute(TriageAIRequest request){
-        return aiClient.triage(request);
+    public TriageAIResponse execute(TriageAIRequest request, Long id) {
+        return aiClient.triage(request,id);
     }
 
 }

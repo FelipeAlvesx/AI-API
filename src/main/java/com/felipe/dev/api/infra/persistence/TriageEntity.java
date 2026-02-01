@@ -32,6 +32,13 @@ public class TriageEntity {
     @Column(nullable=false, columnDefinition = "TEXT")
     private String reason;
 
-    protected TriageEntity() {}
+    public TriageEntity() {}
 
+    public TriageEntity(Long patientId, String urgency, String specialty, String reason) {
+        this.patientId = patientId;
+        this.urgency = urgency;
+        this.specialty = specialty;
+        this.reason = reason;
+        this.createdAt = Instant.now();
+    }
 }

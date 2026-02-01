@@ -29,7 +29,7 @@ public class TriageController {
     public ResponseEntity<?> triage(@RequestBody TriageRequestDTO request){
         TriageAIRequest triageAIRequest = new TriageAIRequest(
                 request.age(), request.symptoms(), request.medicalHistorySummary());
-        TriageResponseDTO response = new TriageResponseDTO(triagePatient.execute(triageAIRequest));
+        TriageResponseDTO response = new TriageResponseDTO(triagePatient.execute(triageAIRequest, request.patientId()));
         return ResponseEntity.ok(response);
     }
 }

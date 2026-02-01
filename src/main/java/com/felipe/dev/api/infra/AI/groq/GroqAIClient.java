@@ -1,6 +1,8 @@
 package com.felipe.dev.api.infra.AI.groq;
 
 import com.felipe.dev.api.application.gateways.AI.*;
+import com.felipe.dev.api.application.gateways.TriageRepository;
+import com.felipe.dev.api.domain.entities.Triage;
 import com.felipe.dev.api.infra.AI.config.AIProperties;
 import com.felipe.dev.api.infra.AI.fallback.SummaryFallbackPolicy;
 import com.felipe.dev.api.infra.AI.fallback.TriageFallbackPolicy;
@@ -21,6 +23,8 @@ public class GroqAIClient implements AIClient {
     private final WebClient webClient;
     private final AIProperties props;
 
+    private final TriageRepository triageRepository;
+
     private final TriagePromptBuilder triagePromptBuilder = new TriagePromptBuilder();
     private final SummaryPromptBuilder summaryPromptBuilder = new SummaryPromptBuilder();
     private final StrictJsonParser jsonParser = new StrictJsonParser();
@@ -28,13 +32,14 @@ public class GroqAIClient implements AIClient {
     private final TriageFallbackPolicy triageFallback = new TriageFallbackPolicy();
     private final SummaryFallbackPolicy summaryFallback = new SummaryFallbackPolicy();
 
-    public GroqAIClient(WebClient aiWebClient, AIProperties props) {
+    public GroqAIClient(WebClient aiWebClient, AIProperties props, TriageRepository triageRepository) {
+        this.triageRepository = triageRepository;
         this.webClient = aiWebClient;
         this.props = props;
     }
 
     @Override
-    public TriageAIResponse triage(TriageAIRequest request) {
+    public TriageAIResponse triage(TriageAIRequest request, Long patientId) {
         String userPrompt = triagePromptBuilder.buildUserPrompt(request);
 
         long start = System.currentTimeMillis();
@@ -44,6 +49,12 @@ public class GroqAIClient implements AIClient {
 
             var parsed = jsonParser.parseTriage(rawContent);
 
+            triageRepository.save(new Triage(
+                    patientId,
+                    parsed.urgency().name(),
+                    parsed.specialty(),
+                    parsed.reason()
+            ));
             return new TriageAIResponse(
                     parsed.urgency(),
                     parsed.specialty(),
