@@ -165,12 +165,13 @@ Make sure you have the following installed:
 Before running the application, configure the following environment variables:
 
 ```env
-OPENAI_API_KEY=your_api_key_here
-OPENAI_BASE_URL=https://api.openai.com/v1
-
-SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/clinicai
-SPRING_DATASOURCE_USERNAME=postgres
-SPRING_DATASOURCE_PASSWORD=postgres
+# === AI (Groq) ===
+ai.provider=${AI_PROVIDER:groq}
+ai.base-url=${AI_BASE_URL:https://api.groq.com/openai/v1}
+ai.api-key=${GROQ_API_KEY}
+ai.model=${AI_MODEL:llama-3.1-8b-instant}
+ai.timeout-ms=${AI_TIMEOUT_MS:16000}
+ai.max-retries=${AI_MAX_RETRIES:3}
 ```
 
 2. Build the project and generate the JAR file:
