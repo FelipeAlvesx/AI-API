@@ -12,6 +12,7 @@ public class WebClientConfig {
         return WebClient.builder()
                 .baseUrl(props.baseUrl())
                 .defaultHeader("Authorization", "Bearer " + props.apiKey())
+                .defaultHeader("Content-Type", "application/json")
                 .build();
     }
 }

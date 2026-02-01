@@ -2,6 +2,7 @@ package com.felipe.dev.api.application.usecases;
 
 import com.felipe.dev.api.application.gateways.AI.AIClient;
 import com.felipe.dev.api.application.gateways.AI.TriageAIRequest;
+import com.felipe.dev.api.application.gateways.AI.TriageAIResponse;
 
 public class TriagePatient {
 
@@ -11,8 +12,8 @@ public class TriagePatient {
         this.aiClient = aiClient;
     }
 
-    public void execute(TriageAIRequest request){
-        aiClient.triage(request);
+    public TriageAIResponse execute(TriageAIRequest request){
+        return aiClient.triage(request);
     }
 
 }
