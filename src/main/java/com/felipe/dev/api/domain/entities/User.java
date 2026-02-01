@@ -1,7 +1,7 @@
 package com.felipe.dev.api.domain.entities;
 
 import com.felipe.dev.api.domain.UserType;
-import com.felipe.dev.api.infra.controller.UserDto;
+import com.felipe.dev.api.infra.controller.DTOS.UserDto;
 
 public class User {
 

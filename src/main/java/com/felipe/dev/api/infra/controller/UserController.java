@@ -3,6 +3,8 @@ package com.felipe.dev.api.infra.controller;
 import com.felipe.dev.api.application.usecases.RegisterPatient;
 import com.felipe.dev.api.application.usecases.UpdatePatient;
 import com.felipe.dev.api.domain.entities.User;
+import com.felipe.dev.api.infra.controller.DTOS.UpdateUserDto;
+import com.felipe.dev.api.infra.controller.DTOS.UserDto;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.felipe.dev.api.infra.controller;
+package com.felipe.dev.api.infra.controller.DTOS;
 
 import jakarta.validation.constraints.NotBlank;
 
