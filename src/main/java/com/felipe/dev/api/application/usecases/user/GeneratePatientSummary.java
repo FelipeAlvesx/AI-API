@@ -1,4 +1,4 @@
-package com.felipe.dev.api.application.usecases;
+package com.felipe.dev.api.application.usecases.user;
 
 import com.felipe.dev.api.application.gateways.AI.AIClient;
 import com.felipe.dev.api.application.gateways.AI.SummaryAIRequest;

@@ -2,7 +2,7 @@ package com.felipe.dev.api.infra.AI.groq;
 
 import com.felipe.dev.api.application.gateways.AI.*;
 import com.felipe.dev.api.application.gateways.TriageRepository;
-import com.felipe.dev.api.domain.entities.Triage;
+import com.felipe.dev.api.domain.entities.triage.Triage;
 import com.felipe.dev.api.infra.AI.config.AIProperties;
 import com.felipe.dev.api.infra.AI.fallback.SummaryFallbackPolicy;
 import com.felipe.dev.api.infra.AI.fallback.TriageFallbackPolicy;

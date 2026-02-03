@@ -1,13 +1,12 @@
-package com.felipe.dev.api.infra.gateways;
+package com.felipe.dev.api.infra.gateways.appointment;
 
 
 import com.felipe.dev.api.application.gateways.AppointmentRepository;
 import com.felipe.dev.api.application.gateways.UserRepository;
 import com.felipe.dev.api.domain.UserType;
-import com.felipe.dev.api.domain.entities.Appointment;
-import com.felipe.dev.api.domain.entities.User;
-import com.felipe.dev.api.infra.persistence.AppointmentRepositoryJpa;
-import com.felipe.dev.api.infra.persistence.UserRepositoryJpa;
+import com.felipe.dev.api.domain.entities.appointment.Appointment;
+import com.felipe.dev.api.domain.entities.user.User;
+import com.felipe.dev.api.infra.persistence.appointment.AppointmentRepositoryJpa;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -30,12 +29,20 @@ public class AppointmentImpl implements AppointmentRepository {
         var now = LocalDateTime.now();
         var user = userRepository.findById(appointment.getDoctorId());
 
-        if(appointment.getStartAt().isBefore(now)) {
+        if (user == null) {
+            throw new IllegalArgumentException("Doctor not found");
+        }
+
+        if (user.getUserType() != UserType.DOCTOR) {
+            throw new IllegalArgumentException("The provided user is not a doctor");
+        }
+
+        if (appointment.getStartAt().isBefore(now)) {
             throw new IllegalArgumentException("Scheduled date cannot be in the past");
         }
 
-        boolean exists = existsAppointment(user, appointment, appointment.getStartAt());
-        if(exists){
+        boolean exists = appointmentRepositoryJpa.existsByDoctorIdAndStartAt(appointment.getDoctorId(), appointment.getStartAt());
+        if (exists) {
             throw new IllegalArgumentException("The doctor already has an appointment scheduled at this time");
         }
 
@@ -64,18 +71,14 @@ public class AppointmentImpl implements AppointmentRepository {
 
     @Override
     public boolean existsScheduledByDoctorAndStartAt(Long doctorId, LocalDateTime startAt) {
-        return false;
+        return appointmentRepositoryJpa.existsByDoctorIdAndStartAt(doctorId, startAt);
     }
 
 
     public boolean existsAppointment(User user, Appointment appointment ,LocalDateTime AppointmentDateTime) {
-        if(user.getUserType() == UserType.DOCTOR){
-            var userId = user.getId();
-            if(appointment.getDoctorId().equals(userId) && appointment.getStartAt().getHour() == AppointmentDateTime.getHour()) {
-                return true; // Retorna true se houver uma consulta agendada para o médico na data
-            }
-
-        }
-        return false;
+        // mantém para compatibilidade com chamada externa (se houver), mas delega ao repositório
+        if (user == null) return false;
+        if (user.getUserType() != UserType.DOCTOR) return false;
+        return appointmentRepositoryJpa.existsByDoctorIdAndStartAt(appointment.getDoctorId(), AppointmentDateTime);
     }
 }

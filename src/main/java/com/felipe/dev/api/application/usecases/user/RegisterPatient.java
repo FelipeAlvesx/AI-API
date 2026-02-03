@@ -1,7 +1,7 @@
-package com.felipe.dev.api.application.usecases;
+package com.felipe.dev.api.application.usecases.user;
 
 import com.felipe.dev.api.application.gateways.UserRepository;
-import com.felipe.dev.api.domain.entities.User;
+import com.felipe.dev.api.domain.entities.user.User;
 
 public class RegisterPatient {
 

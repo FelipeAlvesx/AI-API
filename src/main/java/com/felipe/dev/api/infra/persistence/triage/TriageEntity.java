@@ -1,4 +1,4 @@
-package com.felipe.dev.api.infra.persistence;
+package com.felipe.dev.api.infra.persistence.triage;
 
 
 import jakarta.persistence.*;

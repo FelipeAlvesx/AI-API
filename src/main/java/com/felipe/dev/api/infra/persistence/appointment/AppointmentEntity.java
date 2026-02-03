@@ -1,4 +1,4 @@
-package com.felipe.dev.api.infra.persistence;
+package com.felipe.dev.api.infra.persistence.appointment;
 
 
 import com.felipe.dev.api.domain.AppointmentStats;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "appointment")
+@Table(name = "appointment", uniqueConstraints = @UniqueConstraint(columnNames = {"doctor_id", "start_at"}))
 public class AppointmentEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +33,10 @@ public class AppointmentEntity {
 
     @Column(name="created_at", nullable=false)
     private Instant createdAt;
+
+    // Construtor sem-args requerido pelo JPA
+    public AppointmentEntity() {
+    }
 
     public AppointmentEntity(Long patientId, Long doctorId, LocalDateTime startAt, AppointmentStats status, Instant createdAt) {
         this.patientId = patientId;

@@ -1,9 +1,8 @@
 package com.felipe.dev.api.infra.controller;
 
 import com.felipe.dev.api.application.gateways.AI.TriageAIRequest;
-import com.felipe.dev.api.application.gateways.AI.TriageAIResponse;
-import com.felipe.dev.api.application.usecases.GeneratePatientSummary;
-import com.felipe.dev.api.application.usecases.TriagePatient;
+import com.felipe.dev.api.application.usecases.user.GeneratePatientSummary;
+import com.felipe.dev.api.application.usecases.triage.TriagePatient;
 import com.felipe.dev.api.infra.controller.DTOS.TriageRequestDTO;
 import com.felipe.dev.api.infra.controller.DTOS.TriageResponseDTO;
 import org.springframework.http.ResponseEntity;

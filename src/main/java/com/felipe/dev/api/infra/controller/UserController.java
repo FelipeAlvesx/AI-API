@@ -1,10 +1,10 @@
 package com.felipe.dev.api.infra.controller;
 
 import com.felipe.dev.api.application.gateways.UserRepository;
-import com.felipe.dev.api.application.usecases.FindPatientTriage;
-import com.felipe.dev.api.application.usecases.RegisterPatient;
-import com.felipe.dev.api.application.usecases.UpdatePatient;
-import com.felipe.dev.api.domain.entities.User;
+import com.felipe.dev.api.application.usecases.triage.FindPatientTriage;
+import com.felipe.dev.api.application.usecases.user.RegisterPatient;
+import com.felipe.dev.api.application.usecases.user.UpdatePatient;
+import com.felipe.dev.api.domain.entities.user.User;
 import com.felipe.dev.api.infra.controller.DTOS.FindTriageDTO;
 import com.felipe.dev.api.infra.controller.DTOS.UpdateUserDto;
 import com.felipe.dev.api.infra.controller.DTOS.UserDto;
@@ -12,8 +12,6 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequestMapping("/users")
 @RestController

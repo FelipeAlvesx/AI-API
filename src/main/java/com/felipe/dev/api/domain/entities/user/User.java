@@ -1,4 +1,4 @@
-package com.felipe.dev.api.domain.entities;
+package com.felipe.dev.api.domain.entities.user;
 
 import com.felipe.dev.api.domain.UserType;
 import com.felipe.dev.api.infra.controller.DTOS.UserDto;

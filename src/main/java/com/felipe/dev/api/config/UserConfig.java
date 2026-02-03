@@ -1,15 +1,13 @@
 package com.felipe.dev.api.config;
 
-import com.felipe.dev.api.application.gateways.AI.AIClient;
 import com.felipe.dev.api.application.gateways.TriageRepository;
 import com.felipe.dev.api.application.gateways.UserRepository;
-import com.felipe.dev.api.application.usecases.FindPatientTriage;
-import com.felipe.dev.api.application.usecases.RegisterPatient;
-import com.felipe.dev.api.application.usecases.TriagePatient;
-import com.felipe.dev.api.application.usecases.UpdatePatient;
-import com.felipe.dev.api.infra.gateways.UserMapper;
-import com.felipe.dev.api.infra.gateways.UserRepositoryImpl;
-import com.felipe.dev.api.infra.persistence.UserRepositoryJpa;
+import com.felipe.dev.api.application.usecases.triage.FindPatientTriage;
+import com.felipe.dev.api.application.usecases.user.RegisterPatient;
+import com.felipe.dev.api.application.usecases.user.UpdatePatient;
+import com.felipe.dev.api.infra.gateways.user.UserMapper;
+import com.felipe.dev.api.infra.gateways.user.UserRepositoryImpl;
+import com.felipe.dev.api.infra.persistence.user.UserRepositoryJpa;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

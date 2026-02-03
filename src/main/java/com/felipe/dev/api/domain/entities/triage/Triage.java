@@ -1,4 +1,4 @@
-package com.felipe.dev.api.domain.entities;
+package com.felipe.dev.api.domain.entities.triage;
 
 
 import java.time.Instant;

@@ -1,8 +1,7 @@
 package com.felipe.dev.api.application.gateways;
 
-import com.felipe.dev.api.domain.entities.Appointment;
+import com.felipe.dev.api.domain.entities.appointment.Appointment;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

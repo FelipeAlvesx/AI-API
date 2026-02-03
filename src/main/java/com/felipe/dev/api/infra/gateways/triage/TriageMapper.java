@@ -1,7 +1,7 @@
-package com.felipe.dev.api.infra.gateways;
+package com.felipe.dev.api.infra.gateways.triage;
 
-import com.felipe.dev.api.domain.entities.Triage;
-import com.felipe.dev.api.infra.persistence.TriageEntity;
+import com.felipe.dev.api.domain.entities.triage.Triage;
+import com.felipe.dev.api.infra.persistence.triage.TriageEntity;
 
 public class TriageMapper {
 

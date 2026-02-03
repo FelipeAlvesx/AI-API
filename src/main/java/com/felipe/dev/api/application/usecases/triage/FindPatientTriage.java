@@ -1,7 +1,7 @@
-package com.felipe.dev.api.application.usecases;
+package com.felipe.dev.api.application.usecases.triage;
 
 import com.felipe.dev.api.application.gateways.TriageRepository;
-import com.felipe.dev.api.domain.entities.Triage;
+import com.felipe.dev.api.domain.entities.triage.Triage;
 
 import java.util.List;
 

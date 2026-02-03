@@ -1,14 +1,9 @@
-package com.felipe.dev.api.infra.persistence;
+package com.felipe.dev.api.infra.persistence.user;
 
 import com.felipe.dev.api.domain.UserType;
-import com.felipe.dev.api.domain.entities.Appointment;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @Getter

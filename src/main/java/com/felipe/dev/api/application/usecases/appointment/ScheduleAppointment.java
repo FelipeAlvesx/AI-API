@@ -1,7 +1,7 @@
-package com.felipe.dev.api.application.usecases;
+package com.felipe.dev.api.application.usecases.appointment;
 
 import com.felipe.dev.api.application.gateways.AppointmentRepository;
-import com.felipe.dev.api.domain.entities.Appointment;
+import com.felipe.dev.api.domain.entities.appointment.Appointment;
 
 public class ScheduleAppointment {
 

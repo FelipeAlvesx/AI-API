@@ -1,8 +1,7 @@
-package com.felipe.dev.api.infra.persistence;
+package com.felipe.dev.api.infra.persistence.triage;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Arrays;
 import java.util.List;
 
 public interface TriageRepositoryJpa extends JpaRepository<TriageEntity, Long> {

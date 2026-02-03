@@ -1,4 +1,4 @@
-package com.felipe.dev.api.application.usecases;
+package com.felipe.dev.api.application.usecases.triage;
 
 import com.felipe.dev.api.application.gateways.AI.AIClient;
 import com.felipe.dev.api.application.gateways.AI.TriageAIRequest;

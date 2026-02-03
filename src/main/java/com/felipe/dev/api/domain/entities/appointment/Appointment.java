@@ -1,4 +1,4 @@
-package com.felipe.dev.api.domain.entities;
+package com.felipe.dev.api.domain.entities.appointment;
 
 import com.felipe.dev.api.domain.AppointmentStats;
 

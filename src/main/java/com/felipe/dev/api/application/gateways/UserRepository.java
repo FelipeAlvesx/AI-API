@@ -1,8 +1,6 @@
 package com.felipe.dev.api.application.gateways;
 
-import com.felipe.dev.api.domain.entities.User;
-
-import java.util.List;
+import com.felipe.dev.api.domain.entities.user.User;
 
 public interface UserRepository {
 

@@ -1,7 +1,7 @@
-package com.felipe.dev.api.infra.gateways;
+package com.felipe.dev.api.infra.gateways.appointment;
 
-import com.felipe.dev.api.domain.entities.Appointment;
-import com.felipe.dev.api.infra.persistence.AppointmentEntity;
+import com.felipe.dev.api.domain.entities.appointment.Appointment;
+import com.felipe.dev.api.infra.persistence.appointment.AppointmentEntity;
 
 public class AppointmentMapper {
 

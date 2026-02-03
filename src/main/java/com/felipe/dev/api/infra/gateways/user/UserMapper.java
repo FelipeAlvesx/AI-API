@@ -1,7 +1,7 @@
-package com.felipe.dev.api.infra.gateways;
+package com.felipe.dev.api.infra.gateways.user;
 
-import com.felipe.dev.api.domain.entities.User;
-import com.felipe.dev.api.infra.persistence.UserEntity;
+import com.felipe.dev.api.domain.entities.user.User;
+import com.felipe.dev.api.infra.persistence.user.UserEntity;
 
 public class UserMapper {
 

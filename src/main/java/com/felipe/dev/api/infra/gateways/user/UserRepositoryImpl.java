@@ -1,9 +1,9 @@
-package com.felipe.dev.api.infra.gateways;
+package com.felipe.dev.api.infra.gateways.user;
 
 import com.felipe.dev.api.application.gateways.UserRepository;
-import com.felipe.dev.api.domain.entities.User;
-import com.felipe.dev.api.infra.persistence.UserEntity;
-import com.felipe.dev.api.infra.persistence.UserRepositoryJpa;
+import com.felipe.dev.api.domain.entities.user.User;
+import com.felipe.dev.api.infra.persistence.user.UserEntity;
+import com.felipe.dev.api.infra.persistence.user.UserRepositoryJpa;
 
 public class UserRepositoryImpl implements UserRepository {
 
