@@ -172,8 +172,43 @@ ai.max-retries=${AI_MAX_RETRIES:3}
         "phone": "71996521870"
     }
     ```
-* **Resposta esperada 200 OK**
+* **Resposta esperada 201 CREATED**
   
+
+
+2. ### 🫆 Exemplo de Uso (Triagem Medica IA)
+
+* **Método:** `POST`
+* **URL:** `http://localhost:8080/triage`
+* **Headers:** `Authorization: Bearer <SEU_TOKEN>`
+* **Body (JSON Exemplo):**
+    ```json
+   {
+  "patientId": 1,
+  "age": 45,
+  "symptoms": ["dor de barriga", "fraqueza"],
+  "medicalHistorySummary": "History of hypertension for 5 years. Uses losartan 50mg daily. No known drug allergies. Denies diabetes. No recent surgeries. Last medical check-up 6 months ago."
+    }
+    ```
+
+* **Resposta Esperada 200 OK**
+
+  ```json
+   {
+    "urgency": "LOW",
+    "specialty": "Primary Care",
+    "reason": "Patient presents with non-specific symptoms (dor de barriga, fraqueza) and a history of hypertension, but does not indicate an acute emergency.",
+    "trace": {
+        "provider": "groq",
+        "model": "llama-3.1-8b-instant",
+        "prompt": "Patient data:\n- Age: 45\n- Symptoms: dor de barriga, fraqueza\n- Medical history summary: History of hypertension for 5 years. Uses losartan 50mg daily. No known drug allergies. Denies diabetes. No recent surgeries. Last medical check-up 6 months ago.\n\nOutput JSON schema:\n{\n  \"urgency\":             \"LOW | MEDIUM | HIGH\",\n  \"specialty\": \"string\",\n  \"reason\": \"string\"\n}\n\nReturn ONLY JSON, no extra text.\n",
+        "rawResponse": "{\n  \"urgency\": \"LOW\",\n  \"specialty\": \"Primary Care\",\n  \"reason\": \"Patient presents with non-specific symptoms (dor de barriga, fraqueza) and a history of hypertension, but does not indicate an acute emergency.\"\n}",
+        "latencyMs": 1996
+    }
+}
+   ```
+  
+
 
 
 ### Comandos Úteis
