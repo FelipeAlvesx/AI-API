@@ -7,10 +7,7 @@ import com.felipe.dev.api.application.usecases.TriagePatient;
 import com.felipe.dev.api.infra.controller.DTOS.TriageRequestDTO;
 import com.felipe.dev.api.infra.controller.DTOS.TriageResponseDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/triage")
@@ -32,4 +29,6 @@ public class TriageController {
         TriageResponseDTO response = new TriageResponseDTO(triagePatient.execute(triageAIRequest, request.patientId()));
         return ResponseEntity.ok(response);
     }
+
+
 }

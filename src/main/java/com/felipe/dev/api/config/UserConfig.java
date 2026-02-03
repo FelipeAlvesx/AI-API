@@ -1,7 +1,9 @@
 package com.felipe.dev.api.config;
 
 import com.felipe.dev.api.application.gateways.AI.AIClient;
+import com.felipe.dev.api.application.gateways.TriageRepository;
 import com.felipe.dev.api.application.gateways.UserRepository;
+import com.felipe.dev.api.application.usecases.FindPatientTriage;
 import com.felipe.dev.api.application.usecases.RegisterPatient;
 import com.felipe.dev.api.application.usecases.TriagePatient;
 import com.felipe.dev.api.application.usecases.UpdatePatient;
@@ -22,6 +24,11 @@ public class UserConfig {
     @Bean
     public UpdatePatient UpdatePatient(UserRepository userRepository) {
         return new UpdatePatient(userRepository);
+    }
+
+    @Bean
+    public FindPatientTriage findPatientTriage(TriageRepository triageRepository) {
+        return new FindPatientTriage(triageRepository);
     }
 
 

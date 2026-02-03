@@ -21,6 +21,12 @@ public class Triage {
         this.createdAt = Instant.now();
     }
 
+    public Triage(String urgency, String specialty, String reason, Instant createdAt) {
+        this.urgency = urgency;
+        this.specialty = specialty;
+        this.reason = reason;
+        this.createdAt = createdAt;
+    }
     public Long getId() { return id; }
     public Long getPatientId() { return patientId; }
     public Instant getCreatedAt() { return createdAt; }
