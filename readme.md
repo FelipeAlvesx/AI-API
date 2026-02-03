@@ -193,7 +193,6 @@ public class WebClientConfig {
 * **Resposta esperada 201 CREATED**
   
 
-
 2. ### 🫆 Exemplo de Uso (Triagem Medica IA)
 
 * **Método:** `POST`
