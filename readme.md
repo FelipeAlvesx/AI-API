@@ -172,6 +172,7 @@ ai.max-retries=${AI_MAX_RETRIES:3}
         "phone": "71996521870"
     }
     ```
+* **Resposta esperada 200 OK**
   
 
 
