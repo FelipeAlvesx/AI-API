@@ -205,7 +205,7 @@ ai.max-retries=${AI_MAX_RETRIES:3}
         "rawResponse": "{\n  \"urgency\": \"LOW\",\n  \"specialty\": \"Primary Care\",\n  \"reason\": \"Patient presents with non-specific symptoms (dor de barriga, fraqueza) and a history of hypertension, but does not indicate an acute emergency.\"\n}",
         "latencyMs": 1996
     }
-}
+    }
    ```
   
 
