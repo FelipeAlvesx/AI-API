@@ -141,7 +141,7 @@ A maneira mais simples de rodar a aplicação é utilizando **Docker Compose**, 
 
 
 
-### Configs
+### Project Configs
 
 * ### 🧩 Environment Variables
 
@@ -156,7 +156,25 @@ ai.model=${AI_MODEL:llama-3.1-8b-instant}
 ai.timeout-ms=${AI_TIMEOUT_MS:16000}
 ai.max-retries=${AI_MAX_RETRIES:3}
 ```
-  
+
+* **Web Client Configuration**
+
+```env
+@Configuration
+public class WebClientConfig {
+
+    @Bean
+    public WebClient aiWebClient(AIProperties props) {
+        return WebClient.builder()
+                .baseUrl(props.baseUrl())
+                .defaultHeader("Authorization", "Bearer " + props.apiKey())
+                .defaultHeader("Content-Type", "application/json")
+                .build();
+    }
+}
+```
+
+
  
 1. ### 🫆 Exemplo de Uso (Cadastrar Usuario)
 
