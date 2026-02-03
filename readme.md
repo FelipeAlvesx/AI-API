@@ -139,6 +139,42 @@ A maneira mais simples de rodar a aplicação é utilizando **Docker Compose**, 
     * A API estará rodando em: `http://localhost:8080`
     * O banco de dados estará acessível na porta `3306`.
 
+
+
+### Configs
+
+* ### 🧩 Environment Variables
+
+Before running the application, configure the following environment variables to IA connection:
+
+```env
+# === AI (Groq) ===
+ai.provider=${AI_PROVIDER:groq}
+ai.base-url=${AI_BASE_URL:https://api.groq.com/openai/v1}
+ai.api-key=${GROQ_API_KEY}
+ai.model=${AI_MODEL:llama-3.1-8b-instant}
+ai.timeout-ms=${AI_TIMEOUT_MS:16000}
+ai.max-retries=${AI_MAX_RETRIES:3}
+```
+  
+ 
+1. ### 🫆 Exemplo de Uso (Cadastrar Usuario)
+
+* **Método:** `POST`
+* **URL:** `http://localhost:8080/users`
+* **Headers:** `Authorization: Bearer <SEU_TOKEN>`
+* **Body (JSON Exemplo):**
+    ```json
+    {
+        "name": "Marck Hughel",
+        "email": "mark@email.com",
+        "userType": "PATIENT",
+        "phone": "71996521870"
+    }
+    ```
+  
+
+
 ### Comandos Úteis
 
 * **Parar a aplicação:** `docker-compose down`
@@ -158,19 +194,6 @@ Make sure you have the following installed:
 
 ---
 
-### 🧩 Environment Variables
-
-Before running the application, configure the following environment variables:
-
-```env
-# === AI (Groq) ===
-ai.provider=${AI_PROVIDER:groq}
-ai.base-url=${AI_BASE_URL:https://api.groq.com/openai/v1}
-ai.api-key=${GROQ_API_KEY}
-ai.model=${AI_MODEL:llama-3.1-8b-instant}
-ai.timeout-ms=${AI_TIMEOUT_MS:16000}
-ai.max-retries=${AI_MAX_RETRIES:3}
-```
 
 ### Using IDE
 
