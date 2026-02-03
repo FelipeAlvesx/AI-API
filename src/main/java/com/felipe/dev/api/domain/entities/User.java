@@ -3,8 +3,11 @@ package com.felipe.dev.api.domain.entities;
 import com.felipe.dev.api.domain.UserType;
 import com.felipe.dev.api.infra.controller.DTOS.UserDto;
 
+import java.util.UUID;
+
 public class User {
 
+    private Long id;
     private String name;
     private String email;
 
@@ -13,6 +16,7 @@ public class User {
     private UserType userType;
 
     public User(String name, String email, UserType userType, String phone) {
+        setId();
         this.name = name;
         this.email = email;
         this.userType = userType;
@@ -28,6 +32,14 @@ public class User {
         this.email = userDto.email();
         this.phone = userDto.phone();
         this.userType = UserType.valueOf(userDto.userType());
+    }
+
+    public void setId() {
+        UUID uuid = UUID.randomUUID();
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getPhone() {
