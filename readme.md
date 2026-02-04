@@ -76,8 +76,7 @@ AI providers can be replaced without impacting the core business logic.
 - Authentication using **JWT**
 - Role-based authorization:
     - `ADMIN`
-    - `DOCTOR`
-    - `RECEPTIONIST`
+    - `USER`
 - Secure handling of sensitive data
 - AI API keys stored as environment variables
 
@@ -114,6 +113,19 @@ AI providers can be replaced without impacting the core business logic.
 This project is a **Spring Boot backend application** built with **Java and Maven**.  
 You can run it **locally** or using **Docker**.
 
+
+### 🔧 Tools Needed
+
+Make sure you have the following installed:
+
+- **Java 17+**
+- **Maven 3.8+**
+- **PostgreSQL**
+- **Docker & Docker Compose** (optional, recommended)
+
+---
+
+
 ## 🐳 Executando com Docker (Recomendado)
 
 A maneira mais simples de rodar a aplicação é utilizando **Docker Compose**, que configura automaticamente a API e o banco de dados MySQL.
@@ -121,6 +133,29 @@ A maneira mais simples de rodar a aplicação é utilizando **Docker Compose**, 
 ### Pré-requisitos
 
 * Docker Engine e Docker Compose instalados.
+
+
+## Configuration
+
+The application uses configuration files located in `src/main/resources/`:
+
+- `application.properties` or `application.yml` - Main configuration file
+- Update database credentials, server port, and other settings as needed before building the JAR.
+
+
+### 🧩 Environment Variables
+
+Before running the application, configure the following environment variables:
+
+```env
+# === AI (Groq) ===
+ai.provider=${AI_PROVIDER:groq}
+ai.base-url=${AI_BASE_URL:https://api.groq.com/openai/v1}
+ai.api-key=${GROQ_API_KEY}
+ai.model=${AI_MODEL:llama-3.1-8b-instant}
+ai.timeout-ms=${AI_TIMEOUT_MS:16000}
+ai.max-retries=${AI_MAX_RETRIES:3}
+```
 
 ### Passo a Passo
 
@@ -197,43 +232,9 @@ A maneira mais simples de rodar a aplicação é utilizando **Docker Compose**, 
 
 ---
 
-### 🔧 Prerequisites
-
-Make sure you have the following installed:
-
-- **Java 17+**
-- **Maven 3.8+**
-- **PostgreSQL**
-- **Docker & Docker Compose** (optional, recommended)
-
----
-
-### 🧩 Environment Variables
-
-Before running the application, configure the following environment variables:
-
-```env
-# === AI (Groq) ===
-ai.provider=${AI_PROVIDER:groq}
-ai.base-url=${AI_BASE_URL:https://api.groq.com/openai/v1}
-ai.api-key=${GROQ_API_KEY}
-ai.model=${AI_MODEL:llama-3.1-8b-instant}
-ai.timeout-ms=${AI_TIMEOUT_MS:16000}
-ai.max-retries=${AI_MAX_RETRIES:3}
-```
 
 ### Using IDE
 
 You can also run the project directly from your IDE (IntelliJ IDEA, Eclipse, VS Code) by locating the main class (`Main.java` or `Application.java`) and selecting **Run**.
 
-## Configuration
-
-The application uses configuration files located in `src/main/resources/`:
-
-- `application.properties` or `application.yml` - Main configuration file
-- Update database credentials, server port, and other settings as needed before building the JAR.
-
-## Accessing the Application
-
-Once running, the application will be available at: http://localhost:8080 
 
