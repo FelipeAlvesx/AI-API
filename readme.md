@@ -137,7 +137,57 @@ A maneira mais simples de rodar a aplicação é utilizando **Docker Compose**, 
 
 3.  **Acesse a aplicação:**
     * A API estará rodando em: `http://localhost:8080`
-    * O banco de dados estará acessível na porta `3306`.
+    * O banco de dados estará acessível na porta `5432`.
+
+### 🫆 Exemplo de Uso (Register User)
+
+* **Método:** `POST`
+* **URL:** `http://localhost:8080/users`
+* **Headers:** `Authorization: Bearer <SEU_TOKEN>`
+* **Body (JSON Exemplo):**
+  ```json
+    {
+    "name": "gustavo froes",
+    "email": "gustavo@gmail.com",
+    "userType": "PATIENT",
+    "phone": "71996521870"
+    }
+    ```
+  * **Resposta Esperada `201 CREATED`**
+
+
+### ⚛️ Exemplo de Uso (Triage Patient AI)
+
+* **Método:** `POST`
+* **URL:** `http://localhost:8080/triage`
+* **Headers:** `Authorization: Bearer <SEU_TOKEN>`
+* **Body (JSON Exemplo):**
+  ```json
+  {
+  "patientId": 1,
+  "age": 45,
+  "symptoms": ["dor de barriga", "fraqueza"],
+  "medicalHistorySummary": "History of hypertension for 5 years. Uses losartan 50mg daily. No known drug allergies. Denies diabetes. No recent surgeries. Last medical check-up 6 months ago."
+  }
+  ```
+* **Resposta Esperada `200 OK`**
+    
+    
+  ```json
+    {
+    "urgency": "MEDIUM",
+    "specialty": "Primary Care or Gastroenterology",
+    "reason": "Patient is experiencing symptoms of abdominal discomfort and weakness, which may be related to their hypertension or other underlying conditions. A medical evaluation is necessary to determine the cause of these symptoms.",
+    "trace": {
+      "provider": "groq",
+      "model": "llama-3.1-8b-instant",
+      "prompt": "Patient data:\n- Age: 45\n- Symptoms: dor de barriga, fraqueza\n- Medical history summary: History of hypertension for 5 years. Uses losartan 50mg daily. No known drug allergies. Denies diabetes. No recent surgeries. Last medical check-up 6 months ago.\n\nOutput JSON schema:\n{\n  \"urgency\": \"LOW | MEDIUM | HIGH\",\n  \"specialty\": \"string\",\n  \"reason\": \"string\"\n}\n\nReturn ONLY JSON, no extra text.\n",
+      "rawResponse": "{\n  \"urgency\": \"MEDIUM\",\n  \"specialty\": \"Primary Care or Gastroenterology\",\n  \"reason\": \"Patient is experiencing symptoms of abdominal discomfort and weakness, which may be related to their hypertension or other underlying conditions. A medical evaluation is necessary to determine the cause of these symptoms.\"\n}",
+      "latencyMs": 1395
+      }
+    }
+  ```
+
 
 ### Comandos Úteis
 
