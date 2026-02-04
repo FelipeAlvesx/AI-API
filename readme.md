@@ -224,6 +224,36 @@ ai.max-retries=${AI_MAX_RETRIES:3}
   ```
 
 
+### ⚛️ Exemplo de Uso (Find Patient Triages)
+
+* **Método:** `GET`
+* **URL:** `http://localhost:8080/PATIENT_ID/triages`
+* **Headers:** `Authorization: Bearer <SEU_TOKEN>`
+* **Response (JSON Exemplo):**
+  ```json
+    {
+      "user": {
+      "email": "gustavo@gmail.com",
+      "id": null,
+      "name": "gustavo froes",
+      "phone": "71996521870",
+      "userType": "PATIENT"
+      },
+        "triages": [
+        {
+          "createdAt": "2026-02-04T14:46:35.950532256Z",
+          "id": null,
+          "patientId": 1,
+          "reason": "Patient is experiencing symptoms of abdominal discomfort and weakness, which may be related to their hypertension or other underlying conditions. A medical evaluation is necessary to determine the cause of these symptoms.",
+          "specialty": "Primary Care or Gastroenterology",
+          "urgency": "MEDIUM"
+        }
+      ]
+    }
+  ```
+* **Resposta Esperada `200 OK`**
+
+
 ### Comandos Úteis
 
 * **Parar a aplicação:** `docker-compose down`
