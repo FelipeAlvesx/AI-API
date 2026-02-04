@@ -228,7 +228,7 @@ ai.max-retries=${AI_MAX_RETRIES:3}
   ```
 
 
-### ⚛️ Exemplo de Uso (Find Patient Triages)
+### 🔦 Exemplo de Uso (Find Patient Triages)
 
 * **Método:** `GET`
 * **URL:** `http://localhost:8080/PATIENT_ID/triages`
