@@ -6,7 +6,7 @@ import com.felipe.dev.api.infra.persistence.triage.TriageEntity;
 public class TriageMapper {
 
     public Triage toDomain(TriageEntity triageEntity) {
-        return new Triage(triageEntity.getPatientId(), triageEntity.getUrgency(),
+        return new Triage(triageEntity.getId() ,triageEntity.getPatientId(), triageEntity.getUrgency(),
                 triageEntity.getSpecialty(), triageEntity.getReason());
     }
 
