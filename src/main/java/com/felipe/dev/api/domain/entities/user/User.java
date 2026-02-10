@@ -15,8 +15,8 @@ public class User {
 
     private UserType userType;
 
-    public User(String name, String email, UserType userType, String phone) {
-        setId();
+    public User(Long id ,String name, String email, UserType userType, String phone) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.userType = userType;
@@ -34,9 +34,6 @@ public class User {
         this.userType = UserType.valueOf(userDto.userType());
     }
 
-    public void setId() {
-        UUID uuid = UUID.randomUUID();
-    }
 
     public Long getId() {
         return id;

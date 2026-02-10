@@ -238,7 +238,7 @@ ai.max-retries=${AI_MAX_RETRIES:3}
     {
       "user": {
       "email": "gustavo@gmail.com",
-      "id": null,
+      "id": 1,
       "name": "gustavo froes",
       "phone": "71996521870",
       "userType": "PATIENT"
@@ -246,7 +246,7 @@ ai.max-retries=${AI_MAX_RETRIES:3}
         "triages": [
         {
           "createdAt": "2026-02-04T14:46:35.950532256Z",
-          "id": null,
+          "id": 1,
           "patientId": 1,
           "reason": "Patient is experiencing symptoms of abdominal discomfort and weakness, which may be related to their hypertension or other underlying conditions. A medical evaluation is necessary to determine the cause of these symptoms.",
           "specialty": "Primary Care or Gastroenterology",

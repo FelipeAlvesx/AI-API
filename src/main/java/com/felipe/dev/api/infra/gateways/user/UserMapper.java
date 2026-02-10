@@ -6,7 +6,7 @@ import com.felipe.dev.api.infra.persistence.user.UserEntity;
 public class UserMapper {
 
     public User toDomain(UserEntity userEntity) {
-        return new User(userEntity.getName(), userEntity.getEmail(), userEntity.getUserType(), userEntity.getPhone());
+        return new User(userEntity.getId() ,userEntity.getName(), userEntity.getEmail(), userEntity.getUserType(), userEntity.getPhone());
     }
 
     public UserEntity toEntity(User user) {
