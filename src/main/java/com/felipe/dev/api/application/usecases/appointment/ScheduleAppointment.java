@@ -12,8 +12,7 @@ public class ScheduleAppointment {
     }
 
     public Appointment execute(Appointment appointment) {
-        appointmentRepository.save(appointment);
-        return appointment;
+        return appointmentRepository.save(appointment);
     }
 
 

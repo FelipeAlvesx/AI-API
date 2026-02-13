@@ -3,6 +3,7 @@ package com.felipe.dev.api.config;
 import com.felipe.dev.api.application.gateways.TriageRepository;
 import com.felipe.dev.api.application.gateways.UserRepository;
 import com.felipe.dev.api.application.usecases.triage.FindPatientTriage;
+import com.felipe.dev.api.application.usecases.user.FindDoctors;
 import com.felipe.dev.api.application.usecases.user.RegisterPatient;
 import com.felipe.dev.api.application.usecases.user.UpdatePatient;
 import com.felipe.dev.api.infra.gateways.user.UserMapper;
@@ -29,6 +30,10 @@ public class UserConfig {
         return new FindPatientTriage(triageRepository);
     }
 
+    @Bean
+    public FindDoctors findDoctors(UserRepository userRepository) {
+        return new FindDoctors(userRepository);
+    }
 
     @Bean
     public UserRepositoryImpl getUserRepositoryImpl(UserRepositoryJpa userRepositoryJpa, UserMapper mapper) {

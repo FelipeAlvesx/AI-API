@@ -25,7 +25,7 @@ public class AppointmentImpl implements AppointmentRepository {
     }
 
     @Override
-    public void save(Appointment appointment) {
+    public Appointment save(Appointment appointment) {
         var now = LocalDateTime.now();
         var user = userRepository.findById(appointment.getDoctorId());
 
@@ -46,7 +46,8 @@ public class AppointmentImpl implements AppointmentRepository {
             throw new IllegalArgumentException("The doctor already has an appointment scheduled at this time");
         }
 
-        appointmentRepositoryJpa.save(appointmentMapper.toEntity(appointment));
+        var appointmentSaved = appointmentRepositoryJpa.save(appointmentMapper.toEntity(appointment));
+        return appointmentMapper.toDomain(appointmentSaved);
     }
 
     @Override

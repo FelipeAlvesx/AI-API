@@ -26,7 +26,8 @@ public class Appointment {
         this.createdAt = Instant.now();
     }
 
-    public Appointment(Long patientId, Long doctorId, LocalDateTime startAt, AppointmentStats status, Instant createdAt) {
+    public Appointment(Long id ,Long patientId, Long doctorId, LocalDateTime startAt, AppointmentStats status, Instant createdAt) {
+        this.id = id;
         this.patientId = patientId;
         this.doctorId = doctorId;
         this.startAt = startAt;

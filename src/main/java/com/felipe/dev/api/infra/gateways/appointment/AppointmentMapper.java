@@ -9,6 +9,7 @@ public class AppointmentMapper {
         return new Appointment(
                 appointmentEntity.getId(),
                 appointmentEntity.getPatientId(),
+                appointmentEntity.getDoctorId(),
                 appointmentEntity.getStartAt(),
                 appointmentEntity.getStatus(),
                 appointmentEntity.getCreatedAt()

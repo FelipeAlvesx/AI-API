@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface AppointmentRepository {
 
-    void save(Appointment appointment);
+    Appointment save(Appointment appointment);
 
     List<Appointment> findAll();
 

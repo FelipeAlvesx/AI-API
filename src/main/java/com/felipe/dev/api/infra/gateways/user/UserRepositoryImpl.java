@@ -1,9 +1,14 @@
 package com.felipe.dev.api.infra.gateways.user;
 
 import com.felipe.dev.api.application.gateways.UserRepository;
+import com.felipe.dev.api.domain.UserType;
 import com.felipe.dev.api.domain.entities.user.User;
 import com.felipe.dev.api.infra.persistence.user.UserEntity;
 import com.felipe.dev.api.infra.persistence.user.UserRepositoryJpa;
+
+import java.util.List;
+
+import static org.hibernate.Hibernate.map;
 
 public class UserRepositoryImpl implements UserRepository {
 
@@ -32,5 +37,12 @@ public class UserRepositoryImpl implements UserRepository {
     public User findById(Long id) {
         return repository.findById(id)
                 .stream().map(mapper::toDomain).findFirst().orElse(null);
+    }
+
+    @Override
+    public List<User> findDoctors() {
+        return repository.findByUserType(UserType.DOCTOR)
+                .stream()
+                .map(mapper::toDomain).toList();
     }
 }
