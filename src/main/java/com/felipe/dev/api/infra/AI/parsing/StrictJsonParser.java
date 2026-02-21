@@ -44,7 +44,7 @@ public class StrictJsonParser {
         if (v == null || v.isNull()) {
             throw new IllegalArgumentException("Missing field: " + field);
         }
-        String text = v.textValue();
+        String text = v.asString();
         if (text == null || text.isBlank()) {
             throw new IllegalArgumentException("Missing field: " + field);
         }

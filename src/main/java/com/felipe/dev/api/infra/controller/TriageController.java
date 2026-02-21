@@ -14,10 +14,10 @@ public class TriageController {
 
     private final TriagePatient triagePatient;
 
-    private final GeneratePatientSummary generatePatientSummary;
+    // private final GeneratePatientSummary generatePatientSummary;
 
     public TriageController(TriagePatient triagePatient, GeneratePatientSummary generatePatientSummary) {
-        this.generatePatientSummary = generatePatientSummary;
+        // this.generatePatientSummary = generatePatientSummary;
         this.triagePatient = triagePatient;
     }
 

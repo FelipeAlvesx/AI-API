@@ -99,6 +99,7 @@ public class GroqAIClient implements AIClient {
                 0.2
         );
 
+
         GroqChatResponse resp = webClient.post()
                 .uri("/chat/completions") // base-url já é .../openai/v1
                 .bodyValue(payload)

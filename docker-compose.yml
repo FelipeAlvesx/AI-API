@@ -20,9 +20,14 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
       SPRING_DATASOURCE_DRIVER: org.postgresql.Driver
       SPRING_JPA_DATABASE_PLATFORM: org.hibernate.dialect.PostgreSQLDialect
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: true
       AI_PROVIDER: ${AI_PROVIDER}
       AI_BASE_URL: ${AI_BASE_URL}
-      GROQ_API_KEY: ${GROQ_API_KEY}
+      AI_API_KEY: ${GROQ_API_KEY}
+      AI_MODEL: ${GROQ_MODEL}
+      AI_TIMEOUT_MS: ${AI_TIMEOUT_MS}
+      AI_MAX_RETRIES: ${AI_MAX_RETRIES}
     ports:
       - "8080:8080"
     restart: unless-stopped
